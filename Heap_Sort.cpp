@@ -6,7 +6,7 @@ using namespace std;
 // an index in arr[]. n is size of heap
 void heapify(int arr[], int n, int i)
 {
-    int largest = i; // Initialize largest as root
+    int largest = i;   // Initialize largest as root  //Find largest among root, left child and right child
     int l = 2 * i + 1; // left = 2*i + 1
     int r = 2 * i + 2; // right = 2*i + 2
 
@@ -18,7 +18,7 @@ void heapify(int arr[], int n, int i)
     if (r < n && arr[r] > arr[largest])
         largest = r;
 
-    // If largest is not root
+    // If largest is not root  // Swap and continue heapifying if root is not largest
     if (largest != i) {
         swap(arr[i], arr[largest]);
 
@@ -27,16 +27,16 @@ void heapify(int arr[], int n, int i)
     }
 }
 
-// main function to do heap sort
+// main function to do heap sort 
 void heapSort(int arr[], int n)
 {
-    // Build heap (rearrange array)
+    // Build heap (rearrange array)  // Build max heap
     for (int i = n / 2 - 1; i >= 0; i--)
         heapify(arr, n, i);
 
-    // One by one extract an element from heap
+    // One by one extract an element from heap  // Heap sort
     for (int i = n - 1; i >= 0; i--) {
-        // Move current root to end
+        // Move current root to end  // Heapify root element to get highest element at root again
         swap(arr[0], arr[i]);
 
         // call max heapify on the reduced heap
@@ -55,8 +55,6 @@ void display(int arr[], int n)
 // Driver program
 int main()
 {
-    //int arr[] = { 12, 11, 13, 5, 6, 7 };
-    //int n = sizeof(arr) / sizeof(arr[0]);
      int n;
     cout<<"Enter the size of array : ";
     cin>>n;
